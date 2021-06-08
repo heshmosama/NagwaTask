@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.example.nagwatask.domain.entities.FilesListItemEntity" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_16dp"
+        app:cardCornerRadius="@dimen/dimens_6dp"
+
+        app:cardElevation="@dimen/dimens_4dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/dimens_16dp"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_id_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimens_16dp"
+                android:text="@string/id"
+                android:textSize="@dimen/dimens_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_id_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimens_8dp"
+                android:text="@{model.id.toString()}"
+                android:textSize="@dimen/dimens_16sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_id_label"
+                app:layout_constraintTop_toTopOf="@+id/tv_id_label"
+                tools:text="1" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_type_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_8dp"
+                android:text="@string/type"
+                android:textSize="@dimen/dimens_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_id_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_id_label" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_type_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimens_8dp"
+                android:text="@{model.id.toString()}"
+                android:textSize="@dimen/dimens_16sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_type_label"
+                app:layout_constraintTop_toTopOf="@+id/tv_type_label"
+                tools:text="video" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_8dp"
+                android:text="@string/name"
+                android:textSize="@dimen/dimens_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_type_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_type_label" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimens_8dp"
+                android:text="@{model.id.toString()}"
+                android:textSize="@dimen/dimens_16sp"
+                app:layout_constraintStart_toEndOf="@+id/tv_name_label"
+                app:layout_constraintTop_toTopOf="@+id/tv_name_label"
+                tools:text="video" />
+
+            <ProgressBar
+                android:id="@+id/pb_download"
+                style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:progress="25"
+                android:progressTint="@color/purple_200"
+                android:layout_marginEnd="@dimen/dimens_16dp"
+                tools:visibility="visible"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/tv_percentage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_name_label"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_value" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:visibility="visible"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/pb_download"
+                app:layout_constraintTop_toBottomOf="@+id/pb_download"
+                tools:text="25%" />
+
+            <ImageView
+                android:id="@+id/img_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimens_16dp"
+                android:src="@drawable/ic_baseline_arrow_circle_down_24"
+                app:layout_constraintBottom_toTopOf="@+id/pb_download"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/pb_download"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="false"
+                tools:visibility="visible"
+                android:visibility="gone"
+                app:lottie_rawRes="@raw/done_anim" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
+
+
