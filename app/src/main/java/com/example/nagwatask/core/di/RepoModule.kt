@@ -9,6 +9,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import io.ktor.client.*
 import javax.inject.Singleton
 
 @Module
@@ -16,5 +17,5 @@ import javax.inject.Singleton
 object RepoModule {
     @Singleton
     @Provides
-    fun getMainRepo(networkService: NetworkService, localData: GetDataFromJsonFile) : MainRepo = MainRepoImpl(networkService,localData)
+    fun getMainRepo(networkService: HttpClient, localData: GetDataFromJsonFile) : MainRepo = MainRepoImpl(networkService,localData)
 }

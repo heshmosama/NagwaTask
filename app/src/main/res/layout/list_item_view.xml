@@ -96,12 +96,12 @@
                 style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:progress="25"
+                android:progress="@{model.progress}"
                 android:progressTint="@color/purple_200"
                 android:layout_marginEnd="@dimen/dimens_16dp"
                 tools:visibility="visible"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/tv_percentage"
+                 app:layout_constraintBottom_toTopOf="@+id/tv_percentage"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tv_name_label"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name_value" />
@@ -122,6 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dimens_16dp"
+                android:visibility="visible"
                 android:src="@drawable/ic_baseline_arrow_circle_down_24"
                 app:layout_constraintBottom_toTopOf="@+id/pb_download"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -129,17 +130,17 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animationView"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="@dimen/dimens_16dp"
                 app:layout_constraintBottom_toTopOf="@+id/pb_download"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="false"
                 tools:visibility="visible"
-                android:visibility="gone"
-                app:lottie_rawRes="@raw/done_anim" />
+                 android:visibility="gone"
+                 app:lottie_rawRes="@raw/done_anim" />
 
 
 
