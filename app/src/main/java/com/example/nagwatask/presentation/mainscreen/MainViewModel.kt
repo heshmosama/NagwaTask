@@ -1,15 +1,19 @@
 package com.example.nagwatask.presentation.mainscreen
 
-import android.util.Log
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.nagwatask.core.utils.DataState
+import com.example.nagwatask.core.utils.DownloadResult
 import com.example.nagwatask.domain.entities.FilesListEntity
 import com.example.nagwatask.domain.usecases.MainUseCase
+import io.ktor.http.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.io.File
 
 @ExperimentalCoroutinesApi
 class MainViewModel  @ViewModelInject constructor(
@@ -18,8 +22,6 @@ class MainViewModel  @ViewModelInject constructor(
 ) : ViewModel() {
     private val _data : MutableStateFlow<FilesListEntity> = MutableStateFlow(FilesListEntity())
     var data: StateFlow<FilesListEntity> =  _data
-//    private val _data = MutableLiveData<FilesListEntity>()
-//    val data:LiveData<FilesListEntity>  get() =  _data
 
     private val _isloading : MutableStateFlow<Boolean> = MutableStateFlow(true)
     var isloading: StateFlow<Boolean> =  _isloading
@@ -45,5 +47,8 @@ class MainViewModel  @ViewModelInject constructor(
         }.launchIn(viewModelScope)
 
     }
+
+
+    suspend fun downloadFile(file: File, url: Url):Flow<DownloadResult> = mainUseCase.downloadFile(file,url)
 
 }

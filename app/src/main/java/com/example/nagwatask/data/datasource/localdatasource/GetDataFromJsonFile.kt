@@ -1,6 +1,5 @@
 package com.example.nagwatask.data.datasource.localdatasource
 
-import android.provider.SyncStateContract
 import com.example.nagwatask.core.Constants.Constants
 import com.example.nagwatask.data.Models.FilesList
 import com.google.gson.Gson
