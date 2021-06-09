@@ -1,11 +1,14 @@
 package com.example.nagwatask.domain.usecases
 
 import com.example.nagwatask.core.utils.DataState
+import com.example.nagwatask.core.utils.DownloadResult
 import com.example.nagwatask.domain.entities.FilesListEntity
 import com.example.nagwatask.domain.entities.FilesListItemEntity
 import com.example.nagwatask.domain.repositories.MainRepo
+import io.ktor.http.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import java.io.File
 
 class MainUseCase constructor(private val mainRepo: MainRepo) {
 
@@ -30,4 +33,7 @@ class MainUseCase constructor(private val mainRepo: MainRepo) {
             emit(DataState.Error(e))
         }
     }
+
+    suspend fun downloadFile(file: File, url: Url):Flow<DownloadResult> = mainRepo.downloadFile(file,url)
+
 }
