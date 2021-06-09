@@ -54,7 +54,7 @@ class FilesAdapter(
                     pb_download.progress = it
                     pb_download.isVisible= isVisible
                     img_download.isVisible =isVisible
-                    animationView.isVisible = !isVisible
+                    animationView.isVisible = it == 100
                     tv_percentage.isVisible = it < 99
                     tv_percentage.text = "$it %"
                 }
@@ -78,8 +78,9 @@ class FilesAdapter(
 
         fun bind(file: FilesListItemEntity) = with(itemView) {
             binding.model = file
-
             binding.executePendingBindings()
+            binding.imgDownload.isVisible = !file.isFileExist
+            binding.animationView.isVisible = file.isFileExist
             binding.imgDownload.setOnClickListener {
                 interaction?.onItemSelected(file, binding.pbDownload)
 
@@ -88,8 +89,9 @@ class FilesAdapter(
 
     }
 
-    fun setDownloading(file: FilesListItemEntity, isDownloading: Boolean) {
+    fun setDownloading(file: FilesListItemEntity, isDownloading: Boolean,isFileExist :Boolean) {
         file.isloading = isDownloading
+        file.isFileExist = isFileExist
         notifyItemChanged(this.currentList.indexOf(file))
     }
 

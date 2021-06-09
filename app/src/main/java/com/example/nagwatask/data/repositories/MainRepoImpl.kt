@@ -1,8 +1,8 @@
 package com.example.nagwatask.data.repositories
 
 import com.example.nagwatask.core.utils.DownloadResult
-import com.example.nagwatask.core.utils.downloadFile
 import com.example.nagwatask.data.Models.FilesList
+import com.example.nagwatask.data.datasource.RemoteDatasource.downloadFile
 import com.example.nagwatask.data.datasource.localdatasource.GetDataFromJsonFile
 import com.example.nagwatask.domain.repositories.MainRepo
 import io.ktor.client.*

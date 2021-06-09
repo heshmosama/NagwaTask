@@ -1,7 +1,6 @@
 package com.ips.sdxapp.core.di
 
 
-import com.example.nagwatask.data.datasource.RemoteDatasource.NetworkService
 import com.example.nagwatask.data.datasource.localdatasource.GetDataFromJsonFile
 import com.example.nagwatask.data.repositories.MainRepoImpl
 import com.example.nagwatask.domain.repositories.MainRepo

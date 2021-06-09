@@ -7,5 +7,6 @@ data class FilesListItemEntity(
     val type: String?,
     val url: String?,
     var isloading :Boolean = false,
-    var progress :Int = 0
+    var progress :Int = 0,
+    var isFileExist :Boolean = false
 )
